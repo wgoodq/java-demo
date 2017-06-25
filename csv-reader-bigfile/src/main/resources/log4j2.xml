@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--以下配置文件适用于Log4j2的2.2版本,匹配slf4j的1.7.10版本-->
+<!--修改自:http://www.cnblogs.com/yjmyzz/p/3988114.html-->
+<!--log4j2默认配置文件的路径和文件名:classpath:log4j2.xml-->
+<!--设置log4j2自己的日志显示等级为WARN,每(1800/60)分钟读取一次配置文件-->
+<Configuration status="WARN" monitorInterval="1800">
+    <!--规则制定部分-->
+    <Appenders>
+        <!--输出到控制台-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--%l:输出的信息含有文档链接(文档名:行号),点击后跳转至相应的文档.-->
+            <!--[%-5level]:输出日志级别(占用5个位置,不足补空格)-->
+            <PatternLayout pattern="%d [%-5p] {%-16t}  -  %m%n"/>
+        </Console>
+    </Appenders>
+
+    <!--规则使用部分-->
+    <Loggers>
+        <!--过滤掉spring和hibernate的一些无用的信息-->
+        <logger name="org.springframework" level="WARN"/>
+
+        <!--全局日志输出配置-->
+        <Root level="ALL">
+            <!--<AppenderRef ref="running-log"/>-->
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

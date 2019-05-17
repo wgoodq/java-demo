@@ -10,7 +10,7 @@
         <Console name="Console" target="SYSTEM_OUT">
             <!--%l:输出的信息含有文档链接(文档名:行号),点击后跳转至相应的文档.-->
             <!--[%-5level]:输出日志级别(占用5个位置,不足补空格)-->
-            <PatternLayout pattern="%d [%-5p] {%-16t}  -  %m%n"/>
+            <PatternLayout pattern="%highlight{%d [%-5p]  -  %m%n}{{DEBUG=black, TRACE=black}}"/>
         </Console>
     </Appenders>
 
